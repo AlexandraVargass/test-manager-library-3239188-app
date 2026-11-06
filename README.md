@@ -1,50 +1,32 @@
 # test-manager-library-3239188-app
 
-> **Prueba técnica · Ficha ADSO 3239188**
-> Horario: **jueves 5 de noviembre de 2026, de 7:00 p. m. a 11:00 p. m.** (hora Colombia). Entrega a las **11:00 p. m.**
+> **Prueba técnica · Ficha ADSO 3239188**  
+> Frontend interactivo SPA en **React** para *Manager Library*.
 
-Este repositorio es el **frontend** de *Manager Library*, en **React**. **Empieza vacío a propósito**: se construye en el fork de cada aprendiz.
+Este repositorio contiene la aplicación cliente web interactiva construida con React y Vite, diseñada para consumir la API de Laravel bajo las reglas del negocio y roles de usuario.
 
-## Instrucciones
+---
 
-Cada aprendiz debe **crear el fork** de los seis repositorios del proyecto y **resolver el proyecto
-con el spec planteado**.
+## Características
+* **Autenticación con JWT:** Almacenamiento seguro del token con caducidad de 8 horas y control de vistas por rol (`admin` / `librarian`).
+* **Catálogo de Libros:** Búsqueda en tiempo real, filtro por categorías, conteo de existencias y modal de alta para administradores.
+* **Directorio de Socios:** Consulta y registro con validación de documento de identidad único.
+* **Préstamos y Devoluciones:** Selector de 1 a 3 libros por socio, cálculo dinámico de estados (`Abierto`, `Cerrado`, `Vencido`) y devolución individual de ejemplares.
+* **Mora y Alertas:** Vista dedicada para libros vencidos con cálculo de días de retraso.
+* **Reportes:** Módulo exclusivo para administradores con selector de rango de fechas de los libros más prestados.
 
-1. Hacer fork, a su cuenta de GitHub, de cada repositorio de la tabla del final.
-2. Leer el spec en [`test-manager-library-3239188-docs`](https://github.com/code-sena/test-manager-library-3239188-docs).
-   Se entrega en dos versiones: `spec-python/` y `spec-.net/`.
-3. Desarrollar en los forks.
+---
 
-## El reto se desarrolla con React y PHP (Laravel)
+## Ejecución en Local
 
-El spec está escrito para Python y para .NET, pero el reto **no** se hace en esos lenguajes:
+### 1. Instalar dependencias
+```bash
+npm install
+```
 
-| Capa | Tecnología del reto |
-|---|---|
-| Frontend | React |
-| Backend | PHP con Laravel |
+### 2. Iniciar servidor de desarrollo
+```bash
+npm run dev
+```
 
-Lo que el spec define sobre el negocio —historias, criterios de aceptación, reglas, contrato de la
-API, modelo de datos— se respeta. Lo que define sobre la tecnología se traduce a React y Laravel.
-
-## La prueba no consiste en escribir el código
-
-El propósito principal es ver la **capacidad de desempeño con SDD** (*Spec-Driven Development*,
-desarrollo guiado por especificación): cómo se lee, se interpreta y se aplica una especificación
-para llevarla a un stack distinto. El código es el medio, no el fin.
-
-## Entrega
-
-Cuenta lo que quede **subido a los forks antes de las 11:00 p. m.** Lo que llegue después no se revisa.
-No hay prórroga: suban avances parciales con commits pequeños durante la prueba.
-
-## Los seis repositorios
-
-| Repositorio | Qué va ahí |
-|---|---|
-| [`test-manager-library-3239188-docs`](https://github.com/code-sena/test-manager-library-3239188-docs) | El spec: `spec-python/` y `spec-.net/` |
-| [`test-manager-library-3239188-api`](https://github.com/code-sena/test-manager-library-3239188-api) | Backend en PHP (Laravel) |
-| [`test-manager-library-3239188-app`](https://github.com/code-sena/test-manager-library-3239188-app) | Frontend en React |
-| [`test-manager-library-3239188-page`](https://github.com/code-sena/test-manager-library-3239188-page) | Sitio público estático de presentación |
-| [`test-manager-library-3239188-infra`](https://github.com/code-sena/test-manager-library-3239188-infra) | Contenedores, red, volúmenes y motor de base de datos vacío |
-| [`test-manager-library-3239188-tool`](https://github.com/code-sena/test-manager-library-3239188-tool) | Utilidades: sembrador de datos de demostración |
+La aplicación quedará disponible en `http://localhost:3000` con proxy automático hacia la API de Laravel en `http://localhost:8000`.
